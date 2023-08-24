@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 id="title"></h1>
+  <script>
+    function arePointsNear(checkPoint, centerPoint, km) {
+      var ky = 40000 / 360;
+      var kx = Math.cos(Math.PI * centerPoint.lat / 180.0) * ky;
+      var dx = Math.abs(centerPoint.lng - checkPoint.lng) * kx;
+      var dy = Math.abs(centerPoint.lat - checkPoint.lat) * ky;
+      return Math.sqrt(dx * dx + dy * dy) <= km;
+    }
+    let title = document.getElementById('title');
+
+    
+    if (!navigator.geolocation) {
+      title.innerHTML = "🗺 Il browser non supporta la geolocalizzazione coglione xd lolol 🗺"
+      console.error(`Your browser doesn't support Geolocation`);
+    } else {
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    function onSuccess(position) {
+      const {
+          latitude,
+          longitude
+      } = position.coords;
+
+      let myPos = {lat: latitude, lng: longitude}
+      let ibizaPos = {lat: 39.020012, lng: 1.482148}
+      let inIbiza = arePointsNear(myPos, ibizaPos, 20);
+      if(inIbiza) {
+        title.innerHTML = `questa è ibiza`;
+      } else {
+        title.innerHTML = `questa non è ibiza`;
+      }
+    }
+
+    function onError() {
+      title.innerHTML = `🎍non capisco dove cazzo sei, se non mi dai i permessi come cazzo faccio a capire dove sei coglione`;
+    }
+  </script>
+</body>
+
+</html>
