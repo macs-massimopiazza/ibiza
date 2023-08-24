@@ -5,6 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body  {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      place-items: center;
+      background-color: darkkhaki;
+      color: orangered;
+    }
+  </style>
 </head>
 
 <body>
@@ -34,17 +49,17 @@
       } = position.coords;
 
       let myPos = {lat: latitude, lng: longitude}
-      let ibizaPos = {lat: 39.020012, lng: 1.482148}
+      let ibizaPos = {lat: 46.3131651, lng: 11.6622314}
       let inIbiza = arePointsNear(myPos, ibizaPos, 20);
       if(inIbiza) {
-        title.innerHTML = `questa è ibiza`;
+        title.innerHTML = `🌴 questa è bellamonte 🌴`;
       } else {
-        title.innerHTML = `questa non è ibiza`;
+        title.innerHTML = `❌ questa non è bellamonte ❌`;
       }
     }
 
     function onError() {
-      title.innerHTML = `🎍non capisco dove cazzo sei, se non mi dai i permessi come cazzo faccio a capire dove sei coglione`;
+      title.innerHTML = `🎍non capisco dove cazzo sei, se non mi dai i permessi come cazzo faccio a capire dove sei coglione🎍`;
     }
   </script>
 </body>
