@@ -47,14 +47,14 @@
           latitude,
           longitude
       } = position.coords;
-
+      //  let bellamontePos = {lat: 46.3131651, lng: 11.6622314}
       let myPos = {lat: latitude, lng: longitude}
-      let ibizaPos = {lat: 46.3131651, lng: 11.6622314}
+      let ibizaPos = {lat: 39.020012, lng: 1.482148}
       let inIbiza = arePointsNear(myPos, ibizaPos, 20);
       if(inIbiza) {
-        title.innerHTML = `🌴 questa è bellamonte 🌴`;
+        title.innerHTML = `🌴 questa è ibiza 🌴`;
       } else {
-        title.innerHTML = `❌ questa non è bellamonte ❌`;
+        title.innerHTML = `❌ questa non è ibiza ❌`;
       }
     }
 
